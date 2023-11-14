@@ -7,6 +7,7 @@ class CardGame {
     this.columns = columns;
     this.score = 0;
     this.suits = ["hearts", "diamonds", "clubs", "spades"];
+    this.isSoundEnabled = true;
 
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
@@ -83,6 +84,8 @@ class CardGame {
   handleButtonClick(event) {
     if (event.target.nodeName !== "BUTTON") return;
 
+    this.playBurnSound();
+
     const allCards = this.container.querySelectorAll(".card");
 
     allCards.forEach((card) => {
@@ -98,7 +101,7 @@ class CardGame {
       this.handleMouseOver(event);
     }, 250);
 
-    this.updateScore()
+    this.updateScore();
   }
 
   changeCardElement(cardElement) {
@@ -149,7 +152,37 @@ class CardGame {
     const scoreElement = document.querySelector(".score");
     scoreElement.textContent = `Score: ${this.score}`;
   }
+
+  playBurnSound() {
+    if (!this.isSoundEnabled) return;
+    burnSound.pause();
+    burnSound.currentTime = 0;
+    burnSound.play();
+  }
+
+  handleSoundButtonClick() {
+    if (this.isSoundEnabled) {
+      this.isSoundEnabled = false;
+      soundButtonIconElement.setAttribute("src", "./svg/volume-mute.svg");
+      soundButtonIconElement.setAttribute("alt", "volume mute");
+    } else {
+      this.isSoundEnabled = true;
+      soundButtonIconElement.setAttribute("src", "./svg/volume-on.svg");
+      soundButtonIconElement.setAttribute("alt", "volume on");
+    }
+  }
 }
 
 const container = document.querySelector(".container");
 const cardGame = new CardGame(container, 7, 6);
+
+const soundButtonElement = document.querySelector(".soundButton");
+const soundButtonIconElement = document.createElement("img");
+
+soundButtonIconElement.setAttribute("src", "./svg/volume-on.svg");
+soundButtonIconElement.setAttribute("alt", "volume on");
+soundButtonElement.appendChild(soundButtonIconElement);
+
+soundButtonElement.addEventListener("click", () =>
+  cardGame.handleSoundButtonClick()
+);

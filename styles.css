@@ -14,7 +14,6 @@ body {
   margin: 0;
 
   height: 100vh;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,13 +22,9 @@ body {
   background-color: var(--primary-color);
   background-image: url("./BG.jpg");
   background-size: cover;
-  background-position: center top;
+  background-position: center;
   background-repeat: no-repeat;
 }
-
-/* html {
-  min-width: 400px;
-} */
 
 h1,
 h2,
@@ -72,14 +67,17 @@ button {
 .container {
   overflow: hidden;
   width: 400px;
-  height: 500px;
+  height: 70vh;
   padding: 20px;
   border: 1px solid var(--accent-color);
   border-radius: 5px;
   display: flex;
-
   flex-wrap: wrap;
   gap: 5px;
+
+  @media screen and (max-width: 400px) {
+    width: 100%;
+  }
 }
 
 .card {
@@ -105,19 +103,62 @@ button {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.7);
-
+  filter: brightness(1.75);
 }
 
 .hidden {
-  opacity: 0;
   pointer-events: none;
+  opacity: 0;
+  transform: scale(0.5);
 
   transition: var(--main-transition)
 }
 
+.wrap {
+  width: 400px;
+  padding: 0px 20px 10px 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (max-width: 400px) {
+    width: 100%;
+  }
+}
+
 .score {
-  width: 360px;
   font-size: 20px;
   color: var(--accent-color);
-  padding-bottom: 20px;
+}
+
+.soundButton {
+  overflow: hidden;
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 36px;
+  height: 36px;
+
+  color: var(--accent-color);
+
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  transition: var(--main-transition)
+}
+
+.soundButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  filter: brightness(1.75);
 }

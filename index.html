@@ -4,11 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css" />
-    <title>PTM-JS-Test-Task</title>
+    <link rel="icon" type="image/svg" href="./svg/clubs.svg" />
+    <title>PTM-Minigame</title>
   </head>
   <body>
-    <p class="score">Score: 0</p>
+    <div class="wrap">
+      <p class="score">Score: 0</p>
+      <button class="soundButton"></button>
+    </div>
     <div class="container"></div>
+
+    <audio id="burnSound" src="./audio/4.mp3" autoplay="false"></audio>
 
     <script src="./index.js"></script>
   </body>
