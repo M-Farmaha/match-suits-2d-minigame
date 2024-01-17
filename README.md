@@ -1,4 +1,4 @@
-# Card Game "PTM-Minigame"
+# 2D-minigame "Match Suits"
 
 This game is developed using JavaScript and Object-Oriented Programming (OOP).
 The main objective of the player is to burn adjacent identical cards and score as many points as possible.
@@ -9,7 +9,7 @@ The main objective of the player is to burn adjacent identical cards and score a
 
 ## How to Play
 
-1. Open the `index.html` file in your web browser.
+1. Follow the link [m-farmaha.github.io/match-suits-2d-minigame/](https://m-farmaha.github.io/match-suits-2d-minigame/) or open the `index.html` file in your web browser.
 2. Click on cards to burn adjacent identical cards.
 3. The goal is to achieve the highest score possible.
 
@@ -49,7 +49,7 @@ If you wish to make your own fixes or improvements to the game, you should:
 
 ## Author
 
-The "PTM-Minigame" game is developed by M-Farmaha in 2023.
+The 2D-minigame "Match Suits" game is developed by M-Farmaha in 2023.
 
 ## License
 
